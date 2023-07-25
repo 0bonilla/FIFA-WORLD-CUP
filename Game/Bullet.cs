@@ -48,6 +48,7 @@ namespace Game
             if (RivalShoot)
             {
                 MoveDown();
+                _transform._angle = 180f;
             }
 
             if (_transform.Position.X >= 720 + _renderer.Texture.Width)

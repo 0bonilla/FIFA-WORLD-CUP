@@ -20,8 +20,10 @@ namespace Game
 
         public Bullet bullet;
 
-        public float scoreFra;
-        public float scoreArg;
+        public StaticRenderer staticRenderer;
+
+        public int scoreFra;
+        public int scoreArg;
 
         public bool goalScored;
         //private static List<Bullet> bullets = new List<Bullet>();
@@ -38,6 +40,7 @@ namespace Game
             ball = GameManager.ball;
             colider = GameManager.colider;
             bullet = GameManager.bullet;
+            staticRenderer = new StaticRenderer();
 
             scoreFra = 0;
             scoreArg = 0;
@@ -73,10 +76,7 @@ namespace Game
 
         public void CheckCollisionBall(GameObject object1, float radiusA, GameObject object2, float radiusB)
         {
-            if(colider.CheckCollisionBall(object1, radiusA, object2, radiusB))
-            {
-                Engine.Debug("Pelota");
-            }
+            colider.CheckCollisionBall(object1, radiusA, object2, radiusB);
         }
 
         public void CheckGoalArg(Transform BallTransform)
@@ -87,6 +87,7 @@ namespace Game
                 scoreArg += 1;
                 SoftReset();
                 Score();
+            
             }
         }
 
@@ -108,12 +109,24 @@ namespace Game
             {
                 FranceWin?.Invoke();
                 scoreFra = 0;
+                scoreArg = 0;
+                player.Initialization();
+                rivalnpc.Initialization();
+
             }
             if (scoreArg == 3)
             {
                 ArgenWin?.Invoke();
                 scoreArg = 0;
+                scoreFra = 0;
+                player.Initialization();
+                rivalnpc.Initialization();
+
             }
+
+
+            Generic<int, int> exampleInt = new Generic<int, int>(scoreArg, scoreFra);
+            exampleInt.DisplayValue();
         }
 
         public void SoftReset()
@@ -125,36 +138,31 @@ namespace Game
 
         private void OutOfBounds(Transform BallTransform)
         {
-            if(BallTransform.Position.Y > 1090 || BallTransform.Position.X > 780 || 
+            if(BallTransform.Position.Y > 1090 || BallTransform.Position.X > 765 || 
                 BallTransform.Position.Y < -10 || BallTransform.Position.X < -10)
             {
-                ball._transform.SetPositon(new Vector2(370, BallTransform.Position.Y));
+                ball._transform.SetPositon(new Vector2(370, 540));
             }
         }
         
         public void Render()
-        {
-         
+        {      
             Engine.Clear();
 
-            player.Render();
-            
-            Engine.Draw("Textures/CanchaSola.png", 0, 0, 1, 1);
-            Engine.Draw("Textures/ArcoArriba.png", 230, 20, 1, 1);
-            Engine.Draw("Textures/ArcoArriba.png", 480, 1065, 1, 1, 180, 0);
-
+            staticRenderer.Render();
             rivalnpc.Render();
             player.Render();
             ball.Render();
+
+            staticRenderer.ShowPointArg(scoreArg);
+            staticRenderer.ShowPointFra(scoreFra);
 
             for (int i = 0; i < GameObjects.Count; i++)
             {
                 GameObjects[i].Render();
             }
-            //foreach (Bullet bullet in bullets) bullet.Render();
-            Engine.Show();
 
-            
+            Engine.Show();
         }
         
     }

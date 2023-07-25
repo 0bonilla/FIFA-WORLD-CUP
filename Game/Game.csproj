@@ -41,6 +41,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Animation.cs" />
+    <Compile Include="Generics.cs" />
     <Compile Include="Colider.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="IDestroy.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="NotDynamicBulletPool.cs" />
     <Compile Include="Renderer.cs" />
+    <Compile Include="StaticRenderer.cs" />
     <Compile Include="Vector2.cs" />
     <Compile Include="Transform.cs" />
     <Compile Include="Game.cs" />
@@ -122,13 +124,19 @@
     <Content Include="Textures\PlayerFrancia\4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Textures\Screens\Defeat.png">
+    <Content Include="Textures\Points\ScoreArg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Textures\Points\ScoreFra.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Textures\Screens\MainMenu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Textures\Screens\Victory.png">
+    <Content Include="Textures\Screens\Player1Wins.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Textures\Screens\Player2Wins.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

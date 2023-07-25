@@ -16,7 +16,7 @@ namespace Game
 
         private Vector2 _position;
         private Vector2 _scale;
-        private float _angle;
+        public float _angle;
 
         public Transform(Vector2 position, Vector2 scale, float angle)
         {

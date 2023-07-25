@@ -42,7 +42,12 @@ namespace Game
                 bulletsAvaivables.Add(bullet);
             }
         }
+        public void Reset()
+        {
+            
+        }
 
     }
+
 
 }

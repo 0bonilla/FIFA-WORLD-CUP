@@ -29,6 +29,8 @@ namespace Game
 
         public static Bullet bullet;
 
+        private static StaticRenderer staticRenderer;
+
         public static Character Player => player;
 
         public static Rivalnpc Rivalnpc => rivalnpc;
@@ -38,6 +40,8 @@ namespace Game
         public static Colider Colider => colider;
         public static Bullet Bullet => bullet;
 
+        public static StaticRenderer StaticRenderer => staticRenderer;
+
         public Level Level { get; private set; }
 
         private static GameManager instance;
@@ -45,8 +49,8 @@ namespace Game
         public float scorePlayer;
         public float scoreNPC;
 
-        public const string DEFEAT_PATH = "Textures/Screens/Defeat.png";
-        public const string VICTORY_PATH = "Textures/Screens/Victory.png";
+        public const string DEFEAT_PATH = "Textures/Screens/Player2Wins.png";
+        public const string VICTORY_PATH = "Textures/Screens/Player1Wins.png";
         public const string MAINMENU_PATH = "Textures/Screens/MainMenu.png";
 
 
@@ -71,8 +75,10 @@ namespace Game
             ball = new Ball(new Vector2(370, 540), new Vector2(0.1f, 0.1f), 0);
             colider = new Colider();
             Level = new Level();
+            staticRenderer = new StaticRenderer();
             Level.Start();
             time.Start();
+
         }
 
         public void Update()

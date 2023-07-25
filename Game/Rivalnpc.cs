@@ -9,7 +9,7 @@ namespace Game
     public class Rivalnpc : GameObject, IReset
     {
         //Rival properties
-
+        public int availableShots = 4;
         private Animation idleAnimation;
         public Vector2 InitialPosition = new Vector2(360, 153);
 
@@ -17,7 +17,7 @@ namespace Game
         {
             _transform = new Transform(position, scale, angle);
             movSpeed = movementSpeed;
-            bulletsPool = new NotDynamicBulletPool(4);
+            bulletsPool = new NotDynamicBulletPool(availableShots);
         }
 
         protected override void CreateAnimations()
@@ -33,6 +33,10 @@ namespace Game
 
         }
 
+        public void Initialization()
+        {
+            bulletsPool = new NotDynamicBulletPool(availableShots);
+        }
 
         public override void Update()
         {

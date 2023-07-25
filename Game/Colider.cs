@@ -14,26 +14,6 @@ namespace Game
         {
             bool answer = false;
 
-            float distanceX = Math.Abs(object1.Transform.Position.X - object2.Transform.Position.X);
-            float distanceY = Math.Abs(object1.Transform.Position.Y - object2.Transform.Position.Y);
-
-            float totalDistance = (float)Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
-
-            if (totalDistance < radiusA + radiusB)
-            {
-                object1.Transform.Translate(new Vector2(-distanceX, -distanceY), 10);
-                object2.Transform.Translate(new Vector2(distanceX, distanceY), 10);
-
-                answer = true;
-            }
-
-            return answer;
-        }
-
-        public bool CheckCollisionBall(GameObject object1, float radiusA, GameObject object2, float radiusB)
-        {
-            bool answer = false;
-
             float distanceX = object1.Transform.Position.X - object2.Transform.Position.X;
             float distanceY = object1.Transform.Position.Y - object2.Transform.Position.Y;
 
@@ -41,11 +21,26 @@ namespace Game
 
             if (totalDistance < radiusA + radiusB)
             {
-                object1.Transform.Translate(new Vector2(distanceX, distanceY), 10);
+                object1.Transform.Translate(new Vector2(distanceX, distanceY), 5);
+                object2.Transform.Translate(new Vector2(-distanceX, -distanceY), 5);
+
                 answer = true;
             }
 
             return answer;
+        }
+
+        public void CheckCollisionBall(GameObject object1, float radiusA, GameObject object2, float radiusB)
+        {
+            float distanceX = object1.Transform.Position.X - object2.Transform.Position.X;
+            float distanceY = object1.Transform.Position.Y - object2.Transform.Position.Y;
+
+            float totalDistance = (float)Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
+
+            if (totalDistance < radiusA + radiusB)
+            {
+                object1.Transform.Translate(new Vector2(distanceX, distanceY), 3);
+            }
         }
 
 

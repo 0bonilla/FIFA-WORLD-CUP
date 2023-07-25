@@ -8,13 +8,14 @@ namespace Game
 {
     public class Character : GameObject, IReset
     {
+        public int availableShots = 4;
         private Animation idleAnimation;
         public Vector2 InitialPosition = new Vector2(360, 900);
         public Character(Vector2 position, Vector2 scale, float angle, float movementSpeed) : base(position, scale, angle)
         {
             _transform = new Transform(position, scale, angle);
             movSpeed = movementSpeed;
-            bulletsPool = new NotDynamicBulletPool(4);
+            bulletsPool = new NotDynamicBulletPool(availableShots);
         }
 
         
@@ -28,6 +29,11 @@ namespace Game
             }
             idleAnimation = new Animation("Idle", idleTextures, 0.1f, true);
             currentAnimation = idleAnimation;
+        }
+
+        public void Initialization()
+        {
+            bulletsPool = new NotDynamicBulletPool(availableShots);
         }
 
         public override void Update()
