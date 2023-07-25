@@ -8,7 +8,6 @@ namespace Game
 {
     public class Character : GameObject, IReset
     {
-        public int availableShots = 4;
         private Animation idleAnimation;
         public Vector2 InitialPosition = new Vector2(360, 900);
         public Character(Vector2 position, Vector2 scale, float angle, float movementSpeed) : base(position, scale, angle)

@@ -9,7 +9,6 @@ namespace Game
     public class Rivalnpc : GameObject, IReset
     {
         //Rival properties
-        public int availableShots = 4;
         private Animation idleAnimation;
         public Vector2 InitialPosition = new Vector2(360, 153);
 

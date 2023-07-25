@@ -39,7 +39,7 @@ namespace Game
 
             if (totalDistance < radiusA + radiusB)
             {
-                object1.Transform.Translate(new Vector2(distanceX, distanceY), 3);
+                object1.Transform.Translate(new Vector2(distanceX, distanceY), 4);
             }
         }
 

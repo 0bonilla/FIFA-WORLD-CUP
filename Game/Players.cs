@@ -19,7 +19,8 @@ namespace Game
 
         public NotDynamicBulletPool bulletsPool;
 
-        public float movSpeed;
+        public int availableShots = 7;
+        public float movSpeed = 10;
         public float _radius = 47;
         public Transform Transform => _transform;
         public Renderer Renderer => _renderer;

@@ -70,8 +70,8 @@ namespace Game
         public void Initialization()
         {
             ChangeGameState(GameState.MainMenu);
-            player = new Character(new Vector2(360, 900), new Vector2(0.22f, 0.22f), 0, 100);
-            rivalnpc = new Rivalnpc(new Vector2(360, 153), new Vector2(0.22f, 0.22f), 0, 100);
+            player = new Character(new Vector2(360, 923), new Vector2(0.22f, 0.22f), 0, 125);
+            rivalnpc = new Rivalnpc(new Vector2(360, 153), new Vector2(0.22f, 0.22f), 0, 125);
             ball = new Ball(new Vector2(370, 540), new Vector2(0.1f, 0.1f), 0);
             colider = new Colider();
             Level = new Level();

@@ -112,6 +112,7 @@ namespace Game
                 scoreArg = 0;
                 player.Initialization();
                 rivalnpc.Initialization();
+                SoftReset();
 
             }
             if (scoreArg == 3)
@@ -121,6 +122,7 @@ namespace Game
                 scoreFra = 0;
                 player.Initialization();
                 rivalnpc.Initialization();
+                SoftReset();
 
             }
 
@@ -132,7 +134,7 @@ namespace Game
         public void SoftReset()
         {
             ball._transform.SetPositon(new Vector2(370, 540));
-            player._transform.SetPositon(new Vector2(360, 900));
+            player._transform.SetPositon(new Vector2(360, 945));
             rivalnpc._transform.SetPositon(new Vector2(360, 153));
         }
 
